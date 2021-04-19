@@ -1,0 +1,16 @@
+{%extends 'network/layout.html'%}
+{%block body%}
+<div class="mb-3">
+<label for="formFile" class="form-label">Select Image</label>
+<form action="{%url 'new_post'%}" enctype="multipart/form-data" method="POST">
+	{%csrf_token%}
+	<div class="form-group">
+	<input type="file" name="file" class="form-control" id="formFile"><br>
+		<div class="input-group">
+  <span class="input-group-text">Caption</span>
+ 
+	<textarea class="form-control" aria-label="Caption"name="Caption">{{post.Caption}}</textarea>
+</div>
+	<input  class="btn btn-primary" type="submit" value='Post' name="submit">
+</form>
+{%endblock%}
